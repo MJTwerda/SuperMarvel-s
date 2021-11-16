@@ -1,18 +1,18 @@
-import React from "react";
-import { TouchableOpacity, Image, Text } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import React from 'react';
+import { useNavigation } from '@react-navigation/native';
+import { Text, Image, TouchableOpacity } from 'react-native';
 
-const imgDefault = require('../assets/Unknown.jpg')
+const imgDefault = require('../assets/characters/Unknown.jpg');
 
-export default function Card({name, img}) {
+export default function Card({name, image}) {
     const navigation = useNavigation();
 
     return (
         <TouchableOpacity
-            onPress={() => navigation.navigate('Detail')}
+            onPress={() => {navigation.navigate('Detail')}}
         >
             <Text>There is {name}</Text>
-            <Image source={img ? img : imgDefault} />
+            <Image source={{uri: image}} />
         </TouchableOpacity>
     )
 }
